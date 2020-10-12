@@ -1,7 +1,6 @@
 import React, {useRef} from 'react';
-import { renderIntoDocument } from 'react-dom/test-utils';
 
-function ExpenseForm({expense, setExpense}) {
+function ExpenseForm({expenses, setExpenses}) {
   const desc = useRef(null);
   const price = useRef(null);
   const date = useRef(null);
@@ -13,7 +12,7 @@ function ExpenseForm({expense, setExpense}) {
     dateTimestamp = new Date(dateTimestamp[0],dateTimestamp[1],dateTimestamp[2]).getTime();
 
     //pushing our new expense to handler
-    setExpense([...renderIntoDocument, {
+    setExpenses([...expenses, {
       "desc": desc.current.value,
       "price": price.current.value,
       "date": dateTimestamp

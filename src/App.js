@@ -1,16 +1,25 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import ExpenseForm from './components/ExpenseForm';
+import ExpenseList from './components/ExpenseList';
 import Header from './components/Header';
 function App() {
   const [total, setTotal] = useState(0);
-  const [expense, setExpense] = useState([]);
+  const [expenses, setExpenses] = useState([]);
 
+  useEffect(() => {
+    let total = 0;
 
+    for (const expense of expenses) {
+      total += expense.price;
+    }
+    setTotal(total);
+  }, [expenses]);
 
   return (
     <div className="App">
       <Header total={total} /> 
-      <ExpenseForm expense={expense} setExpense={setExpense} /> 
+      <ExpenseForm expenses={expenses} setExpenses={setExpenses} /> 
+      <ExpenseList expenses={expenses} />
     </div>
   );
 }
