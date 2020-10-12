@@ -1,6 +1,6 @@
-import React, {useRef} from 'react';
+import React, { useRef } from 'react';
 
-function ExpenseForm({expenses, setExpenses}) {
+function ExpenseForm({ expenses, setExpenses }) {
   const desc = useRef(null);
   const price = useRef(null);
   const date = useRef(null);
@@ -9,7 +9,7 @@ function ExpenseForm({expenses, setExpenses}) {
     // blocking browser form handling
     e.preventDefault();
     let dateTimestamp = date.current.value.split('-');
-    dateTimestamp = new Date(dateTimestamp[0],dateTimestamp[1],dateTimestamp[2]).getTime();
+    dateTimestamp = new Date(dateTimestamp[0], dateTimestamp[1], dateTimestamp[2]).getTime();
 
     //pushing our new expense to handler
     setExpenses([...expenses, {
@@ -28,11 +28,13 @@ function ExpenseForm({expenses, setExpenses}) {
   }
 
   return (
-    <form onSubmit={AddExpense}>
-      <input ref={desc} type="text" name="desc" id="desc" placeholder="Descrição..."></input>
-      <input ref={price} type="number" name="price" id="price" placeholder="Valor..."></input>
-      <input ref={date} type="date" name="date" id="date" placeholder="Data..."></input>
-      <button type="submit">Adicionar Gasto</button>
+    <form onSubmit={AddExpense} className="income-form">
+      <div className="form-inner">
+        <input ref={desc} type="text" name="desc" id="desc" placeholder="Descrição..."></input>
+        <input ref={price} type="number" name="price" id="price" placeholder="Valor..."></input>
+        <input ref={date} type="date" name="date" id="date" placeholder="Data..."></input>
+        <button type="submit">Adicionar</button>
+      </div>
     </form>
   )
 }
