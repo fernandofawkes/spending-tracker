@@ -1,4 +1,5 @@
 import React from 'react';
+import ExpenseItem from './ExpenseItem';
 
 function ExpenseList({ expenses, setExpenses }) {
 
@@ -10,14 +11,7 @@ function ExpenseList({ expenses, setExpenses }) {
   return (
     <div>
       {
-        expenses.map((expense, index) => (
-          <div key={index} >
-            <button onClick={() => removeExpense(index)}>X</button>
-            <div>{expense.desc}</div>
-            <div>R$ {expense.price}</div>
-            <div>{new Intl.DateTimeFormat('pt-BR').format(expense.date)}</div>
-          </div>
-        ))
+        expenses.map((expense, index) => <ExpenseItem expense={expense} removeExpense={removeExpense} key={index} index={index} />)
       }
     </div>
   )
