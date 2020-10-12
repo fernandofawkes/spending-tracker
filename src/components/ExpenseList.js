@@ -7,11 +7,16 @@ function ExpenseList({ expenses, setExpenses }) {
     setExpenses(expenses.splice(i, 1));
   };
 
+  const sortByDate = (item1, item2) => {
+    return item1.date - item2.date;
+  } 
   
   return (
     <div>
       {
-        expenses.map((expense, index) => <ExpenseItem expense={expense} removeExpense={removeExpense} key={index} index={index} />)
+        expenses
+        .sort(sortByDate)
+        .map((expense, index) => <ExpenseItem expense={expense} removeExpense={removeExpense} key={index} index={index} />)
       }
     </div>
   )
