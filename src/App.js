@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import ExpenseForm from './components/ExpenseForm';
 import Header from './components/Header';
 function App() {
   const [total, setTotal] = useState(0);
@@ -9,6 +10,7 @@ function App() {
   return (
     <div className="App">
       <Header total={total} /> 
+      <ExpenseForm expense={expense} setExpense={setExpense} /> 
     </div>
   );
 }
