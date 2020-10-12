@@ -14,7 +14,7 @@ function ExpenseForm({expenses, setExpenses}) {
     //pushing our new expense to handler
     setExpenses([...expenses, {
       "desc": desc.current.value,
-      "price": price.current.value,
+      "price": +price.current.value,
       "date": dateTimestamp
     }]);
 
