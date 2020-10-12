@@ -27,3 +27,26 @@ body {
 .App {
 	padding: 30px;
 }
+
+
+header {
+	display: flex;
+	justify-content: space-between;
+	padding: 15px;
+}
+
+h1 {
+	color: var(--grey);
+	font-size: 32px;
+	font-weight: 600;
+	text-align: left;
+}
+
+.total-income {
+	color: var(--grey);
+	font-size: 28px;
+	font-weight: 900;
+	background-color: #DFDFDF;
+	padding: 5px 25px;
+	border-radius: 8px;
+}
