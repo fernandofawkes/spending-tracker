@@ -4,15 +4,17 @@ import ExpenseItem from './ExpenseItem';
 function ExpenseList({ expenses, setExpenses }) {
 
   const removeExpense = i => {
-    setExpenses(expenses.splice(i, 1));
+    expenses.splice(i, 1);
+    //deestructuring to reset reference
+    setExpenses([...expenses]);
   };
 
-  const sortByDate = (item1, item2) => {
+  const sortByDate = (item1, item2) =>   {
     return item1.date - item2.date;
   } 
   
   return (
-    <div>
+    <div className="income-list">
       {
         expenses
         .sort(sortByDate)
